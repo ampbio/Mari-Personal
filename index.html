@@ -11,7 +11,8 @@
   <meta property="og:title" content="Mariana Pinheiro | Personal Trainer" />
   <meta property="og:description" content="Transformando CORPOS e MENTES. CREF 042296-G/SC." />
   <meta property="og:locale" content="pt_BR" />
-  <meta property="og:image" content="imagens/thumb.jpg" />
+  <meta property="og:image" content="https://ampbio.github.io/Mari-Personal/imagens/thumb.jpg" />
+  <meta property="og:url" content="https://ampbio.github.io/Mari-Personal/" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -98,8 +99,8 @@
 
     /* MODAIS */
     .modal-backdrop { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center;
-      padding: 20px; background: rgba(0,24,29,.78); backdrop-filter: blur(4px); opacity: 0; pointer-events: none; transition: opacity .25s; }
-    .modal-backdrop.open { opacity: 1; pointer-events: auto; }
+      padding: 20px; background: rgba(0,24,29,.78); backdrop-filter: blur(4px); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .25s, visibility .25s; }
+    .modal-backdrop.open { opacity: 1; visibility: visible; pointer-events: auto; }
     .modal { width: 100%; max-width: 440px; max-height: 88vh; overflow-y: auto; text-align: left; padding: 22px 20px 20px;
       background: var(--bg); border: 1px solid var(--gold); border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,.45);
       transform: translateY(14px) scale(.98); transition: transform .25s; }
@@ -124,7 +125,11 @@
     .modal-info .modal-list .ck { width: 17px; height: 17px; margin-top: 1px; }
     .modal-info .modal-list .ck svg { width: 10px; height: 10px; }
     .modal-about .modal-soc { width: 40px; height: 40px; justify-self: center; }
-    .modal-about .modal-wa { width: 100%; }
+    .modal-about .modal-wa { width: 100%; white-space: nowrap; }
+    @media (max-width: 380px) {
+      .modal-about .modal-wa { font-size: 12px; letter-spacing: .04em; gap: 6px; padding: 0 8px; }
+      .modal-about .modal-wa svg { width: 16px; height: 16px; }
+    }
     .modal-body .intro { display: block; color: inherit; margin-bottom: 4px; }
     .result-photo { width: 72%; max-width: 280px; margin: 0 auto 16px; }
     .modal-body p { font-size: 15px; line-height: 1.6; color: var(--text); margin-bottom: 12px; }
@@ -158,6 +163,7 @@
       .fade-up { opacity: 1; transform: none; transition: none; }
     }
   </style>
+  <noscript><style>.fade-up { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
   <div class="page">
@@ -277,7 +283,7 @@
         <span class="modal-title"><svg class="tstar" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.94,8.5 22,9.3 16.8,14.1 18.2,21 12,17.6 5.8,21 7.2,14.1 2,9.3 9.06,8.5" fill="currentColor"/></svg><span class="ttext">Resultados</span><svg class="tstar" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.94,8.5 22,9.3 16.8,14.1 18.2,21 12,17.6 5.8,21 7.2,14.1 2,9.3 9.06,8.5" fill="currentColor"/></svg></span>
         <button class="modal-close" aria-label="Fechar" onclick="closeModal('resultados')"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
-      <!-- Para colocar a foto: dentro da div abaixo, adicione <img src="imagens/SUA-FOTO.jpg" alt="Resultado" /> -->
+      <!-- FOTO DOS RESULTADOS: coloque a tag de imagem dentro da div abaixo -->
       <div class="modal-photo result-photo"></div>
       <div class="modal-actions">
         <a class="modal-btn gold" href="https://www.instagram.com/personaltrainer.maripinheiro_/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg> Ver no Instagram</a>
